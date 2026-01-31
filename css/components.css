@@ -1,0 +1,27 @@
+@layer components;
+
+@layer components {
+    .product {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: white; /* added background */
+    }
+    
+    .product__image {
+        width: 150px;
+        float: left;
+        margin-right: 10px;
+    }
+    
+    .product__title {
+        font-size: 1.2em;
+        margin-top: 0;
+        color: red;
+    }
+    
+    .product__price {
+        font-weight: bold;
+        color: green;
+    }
+}
