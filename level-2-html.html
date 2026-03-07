@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 2</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,MONO@-15..0,300..1000,0..1,0..1&family=Roboto+Flex:opsz,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,25..151,100..1000,-200..150,96,323..603,79,649..854,-203,738,514,712&display=swap');
+      :root {
+        --brand: #0984e3;
+        --brand-100: color-mix(in oklch, var(--brand), white 70%) ;
+        --brand-300: color-mix(in oklch, var(--brand), white 45%);
+        --brand-500: var(--brand) ;
+        --brand-700: color-mix(in oklch, var(--brand), black 45%);
+        --brand-900: color-mix(in oklch, var(--brand), black 70%);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: #0a0a2e; color: #eee; padding: 2rem; }
+      section { margin-bottom: 3rem; }
+      section > h3 { color: #888; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.15em; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+
+      .card { background: #16213e; border-radius: 12px; padding: 2rem; max-width: 500px; margin-top: 1rem; }
+      .card-title { margin-bottom: 0.5rem; }
+      .card-body { margin-bottom: 0.75rem; line-height: 1.6; }
+      .card-caption { color: #999; }
+
+      .palette-bar { height: 60px; border-radius: 8px; margin-top: 1rem; max-width: 600px; }
+      .swatch-labels { display: flex; max-width: 600px; margin-top: 0.25rem; }
+      .swatch-labels span { flex: 1; text-align: center; font-size: 0.7rem; color: #888; }
+
+      .flag { width: 300px; height: 200px; border-radius: 4px; margin-top: 1rem; }
+      .gradient-heading { margin-top: 1.5rem; }
+
+      .glass-demo { background: url('https://picsum.photos/seed/glass/1200/600') center/cover no-repeat; border-radius: 16px; padding: 3rem; margin-top: 1rem; min-height: 300px; display: flex; align-items: center; justify-content: center; }
+      .glass-card { max-width: 360px; color: #fff; }
+      .glass-card h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+      .glass-card p { font-size: 0.9rem; line-height: 1.5; opacity: 0.9; }
+
+      .scroll-fade { margin-top: 1rem; white-space: nowrap; }
+      .scroll-fade .scroll-item { display: inline-block; width: 180px; height: 120px; border-radius: 8px; margin-right: 1rem; background: linear-gradient(135deg, #6c5ce7, #00cec9); flex-shrink: 0; }
+
+      .spotlight-demo { margin-top: 1rem; width: 400px; height: 300px; border-radius: 8px; overflow: hidden; }
+      .spotlight-demo img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Apply Styles here */
+      /*--FONTS--*/
+      .card-title {
+        font-family: 'Roboto Flex', sans-serif;
+        font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+        font-weight: 800;
+        font-stretch: 150%;
+        font-variation-settings: "GRAD" 150;
+      }
+      .card-body {
+        font-family: 'Roboto Flex', sans-serif;
+        font-size: 1.3rem;
+        font-stretch: 100%;
+        font-variation-settings: "GRAD" -100, "XTRA" 460;
+      }
+      .card-caption {
+        font-family: 'Roboto Flex', sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        font-stretch: 75%;
+        font-variation-settings: "YTAS" 800;
+      }
+
+      /*--COLORS--*/
+      .palette-bar {
+        height: 60px;
+        width: 100%;
+        border-radius: 8px;
+
+        background-image: linear-gradient(to right,
+          var(--brand-100) 0% 20%,
+          var(--brand-300) 20% 40%,
+          var(--brand-500) 40% 60%,
+          var(--brand-700) 60% 80%,
+          var(--brand-900) 80% 100%);
+      }
+
+      /*--GRADIENTS--*/
+      .flag {
+        background-image: linear-gradient(to right, 
+          #009A44 0% 33.3%,
+          #ffffff 33.33% 66.66%,
+          #FF8200 66.66% 100%);
+        height: 160px;
+      }
+
+      /*--FILTERS--*/
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        backdrop-filter: blur(12px) saturate(180%);
+        padding: 1.5rem;
+      }
+
+      /*--MASKS--*/
+      .scroll-fade {
+        -webkit-mask-image: linear-gradient(to right,
+          transparent 0%,
+          black 20%,
+          black 80%,
+          transparent 100%);
+        mask-image: linear-gradient(to right,
+          transparent 0%,
+          black 20%,
+          black 80%,
+          transparent 100%);
+
+        overflow-x: auto;
+        display: flex;
+      }
+      .spotlight-demo {
+        -webkit-mask-image: radial-gradient(
+          circle 150px at center,
+          black 100%,
+          transparent 100%
+        );
+        mask-image: radial-gradient(
+          circle 150px at center,
+          black 100%,
+          transparent 100%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2.1 FONTS -->
+    <section>
+      <h3>2.1 — Fonts</h3>
+      <div class="card">
+        <div class="card-title">Card Title With Variable Axes</div>
+        <div class="card-body">This is the card body text. It should feel comfortable to read with normal width and a light grade. The counter width should be set for good readability at body sizes.</div>
+        <div class="card-caption">Caption — narrow, light, with tall ascenders via YTAS axis</div>
+      </div>
+    </section>
+
+    <!-- 2.2 COLORS -->
+    <section>
+      <h3>2.2 — Colors</h3>
+      <div class="palette-bar"></div>
+      <div class="swatch-labels">
+        <span>100</span>
+        <span>300</span>
+        <span>500</span>
+        <span>700</span>
+        <span>900</span>
+      </div>
+    </section>
+
+    <!-- 2.3 GRADIENTS -->
+    <section>
+      <h3>2.3 — Gradients</h3>
+      <div class="flag"></div>
+      <div class="gradient-heading">Gradient Text Heading</div>
+    </section>
+
+    <!-- 2.4 FILTERS -->
+    <section>
+      <h3>2.4 — Filters</h3>
+      <div class="glass-demo">
+        <div class="glass-card">
+          <h4>Frosted Glass Card</h4>
+          <p>This card should blur the background behind it while keeping its own text perfectly crisp and readable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.5 MASKS -->
+    <section>
+      <h3>2.5 — Masks</h3>
+
+      <p style="color:#888; font-size:0.8rem; margin-bottom:0.5rem;">Scroll horizontally — edges should fade</p>
+      <div class="scroll-fade">
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+      </div>
+
+      <p style="color:#888; font-size:0.8rem; margin-top:2rem; margin-bottom:0.5rem;">Only a circular area should be visible</p>
+      <div class="spotlight-demo spotlight">
+        <img src="https://picsum.photos/seed/spot/800/600" alt="Spotlight target">
+      </div>
+    </section>
+  </body>
+</html>

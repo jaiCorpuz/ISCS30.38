@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tier 3</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,MONO@-15..0,300..1000,0..1,0..1&display=swap');
+    :root {
+      --brand: #2d3436;
+
+      --surface: oklch(from var(--brand) calc(l + 0.6) 0.01 h);
+      --surface-hover: oklch(from var(--brand) calc(l + 0.55) 0.01 h);
+
+      --text-primary: var(--brand);
+      --text-muted: oklch(from var(--brand) calc(l + 0.3) calc(c - 0.01) h);
+
+      --accent: oklch(from var(--brand) 0.6 0.15 calc(h + 180));
+      --accent-hover: oklch(from var(--brand) 0.6 0.15 h);
+
+      --danger: oklch(from var(--brand) 0.6 0.2 20);
+      --danger-transparent: oklch(from var(--brand) 0.6 0.2 20 / 0.4);
+
+      --overlay: oklch(from var(--brand)l c h / 0.4);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0a1a; color: #eee; }
+    section { padding: 2rem; margin-bottom: 1rem; }
+    section > h3 { color: #888; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.15em; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+
+    .hero-text { text-align: center; padding: 2rem 1rem; }
+
+    .system-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .system-swatch { height: 80px; border-radius: 8px; display: flex; align-items: flex-end; padding: 0.5rem; font-size: 0.7rem; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+
+    .hero-bg { display: flex; align-items: center; justify-content: center; }
+    .hero-bg-text { color: white; font-size: 2rem; font-weight: 700; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+
+    .gallery { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; position: relative; }
+    .gallery img { width: 280px; height: 200px; object-fit: cover; border-radius: 12px; display: block; }
+    .gallery-overlay { display: none; }
+    .gallery-overlay.active { display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+
+    .mask-demos { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+    .mask-demo-box { width: 320px; height: 220px; border-radius: 8px; overflow: hidden; }
+    .mask-demo-box img { width: 100%; height: 100%; object-fit: cover; }
+    .mask-label { font-size: 0.75rem; color: #888; margin-bottom: 0.4rem; }
+
+    /* Apply Styles here */
+    /*--FONTS--*/
+    .hero-text {
+      font-family: 'Recursive', sans-serif;
+      font-size: clamp(3rem, 10vw + 1rem, 8rem);
+      font-weight: 800;
+      line-height: 0.9;
+      text-transform: uppercase;
+      font-variation-settings: "MONO" 1;
+    }
+
+    /*--GRADIENTS--*/
+    .hero-bg {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      background: 
+        radial-gradient(circle at 20% 30%,
+          #CFF09E,
+          transparent 70%),
+        radial-gradient(circle at 85% 60%,
+          #3EA4BD,
+          transparent 70%),
+        conic-gradient(from 45deg at 50% 70%,
+          var(--brand),
+          color-mix(in oklch, var(--brand), white 80%),
+          var(--brand));
+      background-attachment: fixed;
+    }
+
+    /*--FILTERS--*/
+    .vintage {
+      filter: sepia(1) contrast(0.8) brightness(0.9);
+    }
+    .cinematic {
+      filter: saturate(1.8) contrast(1.2) brightness(0.9);
+    }
+    .noir{
+      filter: grayscale(1) contrast(1.4) brightness(1);
+    }
+    .gallery-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+
+      background: rgba(0, 0, 0, 0.4);
+      -webkit-backdrop-filter: blur(12px) brightness(0.7);
+      backdrop-filter: blur(12px) brightness(0.7);
+    }
+
+    .gallery-overlay.active {
+      display: flex;
+    }
+
+    /*--MASKS--*/
+    .diagonal-fade {
+      -webkit-mask-image: linear-gradient(135deg, black 0%, transparent 100%);
+      mask-image: linear-gradient(135deg, black 0%, transparent 100%);
+    }
+    .binocular {
+      -webkit-mask-image: 
+        radial-gradient(circle 80px at 30% 50%, black 100%, transparent 100%),
+        radial-gradient(circle 80px at 70% 50%, black 100%, transparent 100%);
+      
+      mask-image: 
+        radial-gradient(circle 80px at 30% 50%, black 100%, transparent 100%),
+        radial-gradient(circle 80px at 70% 50%, black 100%, transparent 100%);
+
+      -webkit-mask-composite: source-over;
+      mask-composite: add;
+    }
+    .vignette {
+      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
+      mask-image: radial-gradient(circle, black 40%, transparent 95%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3.1 FONTS -->
+  <section>
+    <h3>3.1 — Fonts</h3>
+    <div class="hero-text">
+      Morphing Variable Font
+    </div>
+  </section>
+
+  <!-- 3.2 COLORS -->
+  <section>
+    <h3>3.2 — Colors</h3>
+    <div class="system-grid">
+      <div class="system-swatch" style="background: var(--surface);">surface</div>
+      <div class="system-swatch" style="background: var(--surface-hover);">surface-hover</div>
+      <div class="system-swatch" style="background: var(--text-primary);">text-primary</div>
+      <div class="system-swatch" style="background: var(--text-muted);">text-muted</div>
+      <div class="system-swatch" style="background: var(--accent);">accent</div>
+      <div class="system-swatch" style="background: var(--accent-hover);">accent-hover</div>
+      <div class="system-swatch" style="background: var(--danger);">danger</div>
+      <div class="system-swatch" style="background: var(--danger-transparent);">danger-transparent</div>
+      <div class="system-swatch" style="background: var(--overlay);">overlay</div>
+    </div>
+  </section>
+
+  <!-- 3.3 GRADIENTS -->
+  <section class="hero-bg">
+    <h3 style="position:absolute; top:2rem; left:2rem;">3.3 — Gradients</h3>
+    <div class="hero-bg-text">Layered Gradient Background</div>
+  </section>
+
+  <!-- 3.4 FILTERS -->
+  <section>
+    <h3>3.4 — Filters</h3>
+    <div class="gallery">
+      <div>
+        <p style="font-size:0.8rem; color:#888; margin-bottom:0.5rem;">Vintage</p>
+        <img class="vintage" src="https://picsum.photos/seed/v1/600/400" alt="Vintage">
+      </div>
+      <div>
+        <p style="font-size:0.8rem; color:#888; margin-bottom:0.5rem;">Cinematic</p>
+        <img class="cinematic" src="https://picsum.photos/seed/c1/600/400" alt="Cinematic">
+      </div>
+      <div>
+        <p style="font-size:0.8rem; color:#888; margin-bottom:0.5rem;">Noir</p>
+        <img class="noir" src="https://picsum.photos/seed/n1/600/400" alt="Noir">
+      </div>
+    </div>
+
+    <p style="color:#888; font-size:0.8rem; margin-top:2rem;">Toggle overlay by adding .active class to the element below:</p>
+    <div class="gallery-overlay">
+      <span>Full-viewport backdrop overlay</span>
+    </div>
+  </section>
+
+  <!-- 3.5 MASKS -->
+  <section>
+    <h3>3.5 — Masks</h3>
+    <div class="mask-demos">
+      <div>
+        <div class="mask-label">Diagonal Fade</div>
+        <div class="mask-demo-box diagonal-fade">
+          <img src="https://picsum.photos/seed/rw/640/440" alt="Reveal">
+        </div>
+      </div>
+      <div>
+        <div class="mask-label">Binocular</div>
+        <div class="mask-demo-box binocular">
+          <img src="https://picsum.photos/seed/bn/640/440" alt="Binocular">
+        </div>
+      </div>
+      <div>
+        <div class="mask-label">Vignette</div>
+        <div class="mask-demo-box vignette">
+          <img src="https://picsum.photos/seed/vg/640/440" alt="Vignette">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
