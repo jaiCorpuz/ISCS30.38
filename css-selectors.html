@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: system-ui, sans-serif; line-height: 1.6; color: #1a1a1a; }
+      section { padding: 2rem; max-width: 900px; margin: 0 auto; }
+      section + section { border-top: 1px solid #e5e5e5; }
+      h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+      h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+      p { margin: 0.75rem 0; }
+      img { border-radius: 4px; }
+
+      /* Tier 1 */
+
+      /* 1 */
+      {
+        color: teal;
+        text-decoration: none;
+      }
+
+      /* 2 */
+      {
+        background: #1a1a1a;
+        color: #ffffff;
+        padding: 1rem 2rem;
+      }
+
+      /* 3 */
+      {
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 2px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+      }
+
+      /* 4 */
+      {
+        border-left: 3px solid #3b82f6;
+        padding: 6px 10px;
+      }
+
+      /* 5 */
+      { background: #dbeafe; }
+
+      /* 1.6 */
+      { color: #ea580c; }
+
+
+      /* Tier 1 */
+
+      /* 1 */
+      {
+        border-bottom: 1px solid #e5e5e5;
+        padding: 0.75rem 0;
+      }
+
+      /* 2 */
+      { margin-top: 0; }
+
+      /* 3 */
+      { background: #f8f8f8; }
+
+      /* 4 */
+      { border-bottom: none; }
+
+      /* 5: required fields red border */
+      { border-left: 4px solid #dc2626; }
+
+      /* 5 required fields purple outline on focus */
+      {
+        outline: 3px solid #7c3aed;
+        outline-offset: 2px;
+      }
+
+      /* 6 */
+      {
+        color: green;
+        font-weight: bold;
+      }
+
+      /* 7 */
+      {
+        background: #fef3c7;
+        border-color: #f59e0b;
+      }
+
+
+      /* Tier 3 */
+
+      /* 1 */
+      { font-family: Georgia, 'Times New Roman', serif; }
+
+      /* 2 */
+      {
+        list-style: none;
+        padding: 0;
+      }
+
+      /* 3 */
+      {
+        color: #16a34a;
+        font-weight: bold;
+      }
+
+      /* 4 */
+      {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      /* 5 invalid fields fade button */
+      {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      /* 5 all valid fields activate button */
+      {
+        background: #7c3aed;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      /* 6 */
+      { opacity: 0.5; }
+
+      /* 7 */
+      { margin-top: 1.5rem; }
+    </style>
+    <style>
+      header nav { display: flex; gap: 1.5rem; }
+      .product-card { border: 1px solid #e5e5e5; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; }
+      .product-list { padding-left: 1.5rem; }
+      .product-list li { padding: 0.25rem 0; }
+      .product-list ul { padding-left: 1.5rem; margin: 0.25rem 0; }
+      .task-list { list-style: none; }
+      .task-item { padding: 0.75rem 1rem; border-bottom: 1px solid #e5e5e5; }
+      .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .team-card { border: 1px solid #e5e5e5; border-radius: 6px; padding: 1rem; transition: all 0.2s; }
+      .notification-options { display: flex; flex-direction: column; gap: 8px; }
+      .contact-form { display: flex; flex-direction: column; gap: 12px; max-width: 400px; }
+      .form-row { display: flex; flex-direction: column; gap: 4px; }
+      .form-row input, .form-row textarea { padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+      .submit-btn { padding: 8px 24px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; background: #fff; transition: all 0.2s; }
+      .user-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .user-card { border: 1px solid #e5e5e5; border-radius: 6px; padding: 1rem; }
+      .price { font-size: 1.1rem; }
+    </style>
+  </head>
+  <body>
+    <header id="site-header">
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="flow">
+        <h2>Welcome to the store</h2>
+        <p>Browse our products, manage tasks, and get in touch with the team.</p>
+        <p>We have a wide selection of items available for order.</p>
+        <h3>Announcements</h3>
+        <p>New arrivals are in stock this week!</p>
+        <h4>Seasonal picks</h4>
+        <p>Check out our curated seasonal recommendations below.</p>
+      </section>
+      <section id="products">
+        <h2>Products</h2>
+
+        <div class="product-card">
+          <div>
+            <h3>Wireless headphones</h3>
+            <p class="price">$79.99</p>
+            <span class="tag">electronics</span>
+            <span class="tag">audio</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect fill='%233b82f6' width='120' height='80' rx='4'/%3E%3Ctext x='60' y='45' text-anchor='middle' fill='white' font-size='12'%3Eproduct img%3C/text%3E%3C/svg%3E" alt="Mechanical keyboard">
+          <div>
+            <h3>Mechanical keyboard</h3>
+            <p class="price">$129.99</p>
+            <span class="tag">electronics</span>
+            <span class="tag">peripherals</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div>
+            <h3>USB-C hub</h3>
+            <p class="price">$34.99</p>
+            <span class="tag">accessories</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect fill='%2322c55e' width='120' height='80' rx='4'/%3E%3Ctext x='60' y='45' text-anchor='middle' fill='white' font-size='12'%3Eproduct img%3C/text%3E%3C/svg%3E" alt="Desk lamp">
+          <div>
+            <h3>Desk lamp</h3>
+            <p class="price">$49.99</p>
+            <span class="tag">lighting</span>
+          </div>
+        </div>
+
+        <h3>Product categories</h3>
+        <ul class="product-list">
+          <li>
+            Electronics
+            <ul>
+              <li>Headphones</li>
+              <li>Keyboards</li>
+            </ul>
+          </li>
+          <li>
+            Accessories
+            <ul>
+              <li>Cables</li>
+              <li>Hubs</li>
+            </ul>
+          </li>
+          <li>Lighting</li>
+          <li class="out-of-stock">
+            Furniture
+            <span class="price">$299.00</span>
+          </li>
+          <li>
+            Monitors
+            <span class="price">$399.00</span>
+          </li>
+          <li>
+            Webcams
+            <span class="price">$89.00</span>
+          </li>
+        </ul>
+      </section>
+      <section id="tasks">
+        <h2>Task list</h2>
+        <ul class="task-list">
+          <li class="task-item">Review pull request #42</li>
+          <li class="task-item">Update API documentation</li>
+          <li class="task-item">Fix login page layout bug</li>
+          <li class="task-item">Deploy staging build</li>
+          <li class="task-item">Write unit tests for cart module</li>
+          <li class="task-item">Prepare sprint retrospective notes</li>
+        </ul>
+      </section>
+      <section id="team">
+        <h2>Team</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>Alice Chen</h3>
+            <p>Frontend lead</p>
+            <span class="tag">engineering</span>
+          </div>
+          <div class="team-card">
+            <h3>Bob Martinez</h3>
+            <p>Backend engineer</p>
+            <span class="tag">engineering</span>
+          </div>
+          <div class="team-card">
+            <h3>Carol Smith</h3>
+            <p>Product designer</p>
+            <span class="tag">design</span>
+          </div>
+          <div class="team-card">
+            <h3>Dan Okafor</h3>
+            <p>Engineering manager</p>
+            <span class="tag">leadership</span>
+          </div>
+        </div>
+      </section>
+      <section id="notifications">
+        <h2>Notification settings</h2>
+        <div class="notification-options">
+          <div>
+            <input type="checkbox" id="notif-email">
+            <label for="notif-email">Email notifications</label>
+          </div>
+          <div>
+            <input type="checkbox" id="notif-sms">
+            <label for="notif-sms">SMS notifications</label>
+          </div>
+          <div>
+            <input type="checkbox" id="notif-push">
+            <label for="notif-push">Push notifications</label>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact us</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" required placeholder="Your name" minlength="2">
+          </div>
+          <div class="form-row">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" required placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="contact-phone">Phone (optional)</label>
+            <input type="tel" id="contact-phone" placeholder="555-0123">
+          </div>
+          <div class="form-row">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="3" placeholder="Your message..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send message</button>
+        </form>
+      </section>
+      <section id="user-cards">
+        <h2>Featured users</h2>
+        <div class="user-grid">
+          <div class="user-card">
+            <h3>User 1</h3>
+            <p>Member since 2021</p>
+          </div>
+          <div class="user-card">
+            <h3>User 2</h3>
+            <p>Member since 2022</p>
+          </div>
+          <div class="user-card">
+            <h3>User 3</h3>
+            <p>Member since 2020</p>
+          </div>
+          <div class="user-card">
+            <h3>User 4</h3>
+            <p>Member since 2023</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
