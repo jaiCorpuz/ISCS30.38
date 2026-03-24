@@ -18,12 +18,14 @@
       /* Tier 1 */
 
       /* 1 */
+      a
       {
         color: teal;
         text-decoration: none;
       }
 
       /* 2 */
+      #site-header 
       {
         background: #1a1a1a;
         color: #ffffff;
@@ -31,6 +33,7 @@
       }
 
       /* 3 */
+      .tag
       {
         display: inline-block;
         background: #f0f0f0;
@@ -40,51 +43,62 @@
       }
 
       /* 4 */
+      .form-row
       {
         border-left: 3px solid #3b82f6;
         padding: 6px 10px;
       }
 
       /* 5 */
+      .submit-btn:hover
       { background: #dbeafe; }
 
       /* 1.6 */
+      #site-header:hover
       { color: #ea580c; }
 
 
-      /* Tier 1 */
+      /* Tier 2 */
 
       /* 1 */
+      .product-list > li
       {
         border-bottom: 1px solid #e5e5e5;
         padding: 0.75rem 0;
       }
 
       /* 2 */
+      h2 + p
       { margin-top: 0; }
 
       /* 3 */
+      .task-list li:nth-child(odd)
       { background: #f8f8f8; }
 
       /* 4 */
+      .task-list li:last-child
       { border-bottom: none; }
 
       /* 5: required fields red border */
+      .contact-form input:required
       { border-left: 4px solid #dc2626; }
 
       /* 5 required fields purple outline on focus */
+      .contact-form input:required:focus
       {
         outline: 3px solid #7c3aed;
         outline-offset: 2px;
       }
 
       /* 6 */
+      .notification-options input:checked ~ label
       {
         color: green;
         font-weight: bold;
       }
 
       /* 7 */
+      .user-card:nth-child(3)
       {
         background: #fef3c7;
         border-color: #f59e0b;
@@ -94,21 +108,25 @@
       /* Tier 3 */
 
       /* 1 */
+      :is(h2, h3, h4)
       { font-family: Georgia, 'Times New Roman', serif; }
 
       /* 2 */
+      :where(ul, ol)
       {
         list-style: none;
         padding: 0;
       }
 
       /* 3 */
+      .product-list li:not(.out-of-stock) .price
       {
         color: #16a34a;
         font-weight: bold;
       }
 
       /* 4 */
+      .product-card:has(img)
       {
         display: grid;
         grid-template-columns: 120px 1fr;
@@ -117,12 +135,14 @@
       }
 
       /* 5 invalid fields fade button */
+      .contact-form:has(input:invalid) .submit-btn
       {
         opacity: 0.4;
         cursor: not-allowed;
       }
 
       /* 5 all valid fields activate button */
+      .contact-form:not(:has(input:invalid)) .submit-btn
       {
         background: #7c3aed;
         color: #ffffff;
@@ -130,9 +150,11 @@
       }
 
       /* 6 */
+      .team-card:has(+ .team-card:hover)
       { opacity: 0.5; }
 
       /* 7 */
+      .flow > * + *
       { margin-top: 1.5rem; }
     </style>
     <style>
